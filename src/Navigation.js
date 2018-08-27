@@ -11,18 +11,34 @@ const AppStack = createStackNavigator({
     screen: Home,
     navigationOptions: ({navigation}) => {
       return {
-        headerTitle: <IconTitle />
+        headerTitle: <IconTitle />,
+        headerStyle: {
+          backgroundColor: '#fff',
+          borderBottomWidth: 0
+        }
       };
     }
   },
   ColorMatch: { 
-    screen: ColorMatch
+    screen: ColorMatch,
+    navigationOptions: ({navigation}) => {
+      return {
+        headerStyle: {
+          backgroundColor: '#333',
+          borderBottomWidth: 0
+        }
+      };
+    }
   },
   ColorMatchResults: { 
     screen: ColorMatchResults,
     navigationOptions: ({navigation}) => {
       return {
-        title: 'Colorblind Design',
+        headerTitle: <IconTitle />,
+        headerStyle: {
+          backgroundColor: '#fff',
+          borderBottomWidth: 0
+        },
         headerRight: (
           <Icon 
             name="bookmark-border"

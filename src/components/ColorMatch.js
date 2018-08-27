@@ -5,7 +5,6 @@ import { Icon } from 'react-native-elements'
 
 class ColorMatch extends Component {
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <Text style={styles.text}> Init Color Match Flow </Text>
