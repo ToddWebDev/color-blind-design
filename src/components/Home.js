@@ -1,29 +1,39 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet, Button, Text, View } from 'react-native';
 
 export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{this.props.title}</Text>
-        <Text onPress={
+        <Button title='Start' onPress={
           () => this.props.navigation.navigate('ColorMatch')
-        }>Start</Text>
+        }></Button>
       </View>
     )
   }
 }
 
-const styles = {
-  container: {
-    paddingTop: 24,
-    alignItems: 'center',
-  },
+//What is the difference between StyleSheet.create and styles? 
 
-  text: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    margin: 13
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
-};
+});
+
+// const styles = {
+//   container: {
+//     paddingTop: 24,
+//     alignItems: 'center',
+//   },
+
+//   text: {
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     textAlign: 'center',
+//     margin: 13
+//   }
+// };
