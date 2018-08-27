@@ -15,6 +15,7 @@ const AppStack = createStackNavigator({
     navigationOptions: ({navigation}) => {
       return {
         title: 'Colorblind Design',
+        headerLeft: null
       };
     }
   },
