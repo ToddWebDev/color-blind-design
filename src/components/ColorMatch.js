@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import { createBottomTabNavigator } from 'react-navigation';
+import { Icon } from 'react-native-elements'
 
 class ColorMatch extends Component {
   render() {
@@ -37,6 +38,24 @@ const Tabs = createBottomTabNavigator(
   },
   {
     initialRouteName: 'ColorMatch',
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'ColorMatch') {
+          iconName = `invert-colors`;
+        } else if (routeName === 'Photos') {
+          iconName = `collections`;
+        } else if (routeName === 'Options') {
+          iconName = `more-horiz`;
+        }
+        return <Icon name={iconName} size={25} color={tintColor}/>;
+      }
+    }),
+    tabBarOptions: {
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
   }
 );
 
