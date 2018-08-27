@@ -5,13 +5,17 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={{flex: 1.5}}>
         <Text style={styles.textHeader}> Let's get started!</Text>
         <Text style={styles.text}> Confidently match your clothes.</Text>
+        </View>
+        <View style={{flex: 2}}>
         <TouchableHighlight style={styles.button} onPress={
           () => this.props.navigation.navigate('ColorMatch')
         }>
           <View><Text style={styles.buttonText}>START</Text></View>
         </TouchableHighlight>
+        </View>
       </View>
     )
   }
@@ -30,11 +34,15 @@ const styles = StyleSheet.create({
   textHeader: {
     fontSize: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 75,
+    marginBottom: 25
   },
 
   text: {
     fontSize: 14,
     color: '#999',
+    textAlign: 'center'
   },
 
   button: {

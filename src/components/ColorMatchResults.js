@@ -9,10 +9,10 @@ export default class ColorMatchResults extends Component {
       <View style={styles.container}>
         <InnerSection>
           <Text style={styles.textHeader}> It's an 85% match </Text>
-          <Text style={styles.text}>Result message text.</Text>
+          <Text style={styles.text}>These colors are analogous.</Text>
         </InnerSection>
         <InnerSection>
-          <Results />
+          <Results percentage='85' />
         </InnerSection>
         <InnerSection>
           <Text style={styles.textSubHeader}> Helpful Tips: </Text>
@@ -34,7 +34,7 @@ export default class ColorMatchResults extends Component {
 const styles = {
   container: {
     flex: 1,
-    paddingTop: 24,
+    paddingTop: 14,
     alignItems: 'center',
     backgroundColor: '#fff'
   },
@@ -47,10 +47,10 @@ const styles = {
   },
 
   textSubHeader: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: 20
   },
 
@@ -60,15 +60,16 @@ const styles = {
     textAlign: 'center',
     marginLeft: 50,
     marginRight: 50,
-    marginBottom: 25
+    marginBottom: 25,
+    lineHeight: 30
   },
 
   button: {
-    marginTop: 50,
+    marginTop: 10,
     borderRadius: 50,
     borderColor: '#FF5858',
     borderWidth: 3,
-    padding: 20,
+    padding: 15,
     width: 300
   },
 
