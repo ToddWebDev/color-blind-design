@@ -1,17 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, Text, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import Home from './src/components/Home';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View>
+        <Button title='Start' style={styles.text} onPress={
+          () => this.props.navigation.navigate('ColorMatch')
+        }></Button>
       </View>
     );
   }
 }
+
+App.navigationOptions = {
+  title: 'Colorblind Design'
+}
+
+const ColorMatch = () => <View>
+    <Text style={styles.text}>Run Match Flow</Text>
+  </View>
+
+const Nav = createStackNavigator({
+  App: { screen: App },
+  ColorMatch: { screen: ColorMatch }
+});
+
+export default Nav;
 
 const styles = StyleSheet.create({
   container: {
@@ -20,4 +37,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  text: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 13
+  }
 });
