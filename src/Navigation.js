@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import IconTitle from './components/IconTitle';
 import Home from './components/Home';
 import ColorMatch from './components/ColorMatch';
 import ColorMatchResults from './components/ColorMatchResults';
@@ -7,7 +8,12 @@ import { Icon } from 'react-native-elements'
 
 const AppStack = createStackNavigator({
   Home: {
-    screen: Home
+    screen: Home,
+    navigationOptions: ({navigation}) => {
+      return {
+        headerTitle: <IconTitle />
+      };
+    }
   },
   ColorMatch: { 
     screen: ColorMatch

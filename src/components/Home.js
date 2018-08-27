@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-import { StyleSheet, Button, Text, View } from 'react-native';
+import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
 export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title='Start' onPress={
+        <Text style={styles.textHeader}> Let's get started!</Text>
+        <Text style={styles.text}> Confidently match your clothes.</Text>
+        <TouchableHighlight style={styles.button} onPress={
           () => this.props.navigation.navigate('ColorMatch')
-        }></Button>
+        }>
+          <View><Text style={styles.buttonText}>START</Text></View>
+        </TouchableHighlight>
       </View>
     )
   }
@@ -20,7 +24,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+  },
+
+  textHeader: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  text: {
+    fontSize: 14,
+    color: '#999',
+  },
+
+  button: {
+    backgroundColor: '#FA5F5F',
+    borderRadius: 50,
+    height: 100,
+    width: 100,
+    paddingTop: 43,
+    alignItems: 'center'
+  },
+
+  buttonText: {
+    color: '#fff',
   }
 });
 
