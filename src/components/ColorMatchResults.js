@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 
-
 export default class ColorMatchResults extends Component {
   render() {
     return (
