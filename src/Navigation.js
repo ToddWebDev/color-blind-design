@@ -1,15 +1,12 @@
-import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import Home from './components/Home';
 import ColorMatch from './components/ColorMatch';
 import ColorMatchResults from './components/ColorMatchResults';
 
-const HomeStack = createStackNavigator({
+const AppStack = createStackNavigator({
   Home: {
     screen: Home
-  }
-});
-
-const AppStack = createStackNavigator({
+  },
   ColorMatch: { 
     screen: ColorMatch
   },
@@ -25,10 +22,9 @@ const AppStack = createStackNavigator({
 
 export default createSwitchNavigator(
   {
-    Home: HomeStack,
-    Match: AppStack
+    App: AppStack
   },
   {
-    initialRouteName: 'Home'
+    initialRouteName: 'App'
   }
 );

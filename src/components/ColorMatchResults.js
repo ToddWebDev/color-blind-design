@@ -1,44 +1,19 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { createBottomTabNavigator } from 'react-navigation';
+import { Text, View, Button } from 'react-native'
 
 
-class ColorMatchResults extends Component {
+export default class ColorMatchResults extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}> Color Match Results </Text>
+        <Text style={styles.text}> It's an 85% match </Text>
+        <Button title='New Match' onPress={
+          () => this.props.navigation.navigate('ColorMatch')
+        }></Button>
       </View>
     )
   }
 }
-
-const Results = () => <View>	
-    <Text style={styles.text}>Results</Text>	
-  </View>	
-
-const Photos = () => <View>	
-    <Text style={styles.text}>Photos</Text>	
-  </View>	
-
-const Options = () => <View>	
-  <Text style={styles.text}>Options</Text>	
-  </View>	
-
-
-const Tabs = createBottomTabNavigator(
-  {
-    Photos: { screen: Photos },
-    Results: { screen: Results },
-    Options: { screen: Options }
-  },
-  {
-    initialRouteName: 'Results',
-  }
-);
-
-export default Tabs;
-
 
 const styles = {
   container: {

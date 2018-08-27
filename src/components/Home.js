@@ -6,7 +6,7 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <Button title='Start' onPress={
-          () => this.props.navigation.navigate('Match')
+          () => this.props.navigation.navigate('ColorMatch')
         }></Button>
       </View>
     )

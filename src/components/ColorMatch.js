@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
+import { createBottomTabNavigator } from 'react-navigation';
 
-export default class ColorMatch extends Component {
+class ColorMatch extends Component {
   render() {
     console.log(this.props);
     return (
@@ -14,6 +15,32 @@ export default class ColorMatch extends Component {
     )
   }
 }
+
+const Results = () => <View>	
+    <Text style={styles.text}>Results</Text>	
+  </View>	
+
+const Photos = () => <View>	
+    <Text style={styles.text}>Photos</Text>	
+  </View>	
+
+const Options = () => <View>	
+  <Text style={styles.text}>Options</Text>	
+  </View>	
+
+
+const Tabs = createBottomTabNavigator(
+  {
+    Photos: { screen: Photos },
+    ColorMatch: { screen: ColorMatch },
+    Options: { screen: Options }
+  },
+  {
+    initialRouteName: 'ColorMatch',
+  }
+);
+
+export default Tabs;
 
 const styles = {
   container: {
