@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import { createBottomTabNavigator } from 'react-navigation';
-import { Icon } from 'react-native-elements'
+import { Icon } from 'react-native-elements';
+import CameraRoll from '../components/CameraRoll';
 
 class ColorMatch extends Component {
   render() {
@@ -16,22 +17,13 @@ class ColorMatch extends Component {
   }
 }
 
-const Results = () => <View>	
-    <Text style={styles.text}>Results</Text>	
-  </View>	
-
-const Photos = () => <View>	
-    <Text style={styles.text}>Photos</Text>	
-  </View>	
-
 const Options = () => <View>	
   <Text style={styles.text}>Options</Text>	
   </View>	
 
-
 const Tabs = createBottomTabNavigator(
   {
-    Photos: { screen: Photos },
+    Photos: { screen: CameraRoll },
     ColorMatch: { screen: ColorMatch },
     Options: { screen: Options }
   },
