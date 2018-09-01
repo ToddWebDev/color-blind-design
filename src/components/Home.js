@@ -10,7 +10,7 @@ export default class Home extends Component {
         <Text style={styles.text}> Confidently match your clothes.</Text>
         </View>
         <View style={{flex: 2}}>
-        <TouchableHighlight style={styles.button} onPress={
+        <TouchableHighlight style={styles.button} underlayColor={'#dd5252'} onPress={
           () => this.props.navigation.navigate('ColorMatch')
         }>
           <View><Text style={styles.buttonText}>START</Text></View>

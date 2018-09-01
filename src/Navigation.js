@@ -39,14 +39,14 @@ const AppStack = createStackNavigator({
           backgroundColor: '#fff',
           borderBottomWidth: 0
         },
-        headerRight: (
-          <Icon 
-            name="bookmark-border"
-            size={30}
-            onPress={() => null }
-            iconStyle={{paddingRight: 10, color:'#999'}}
-          />
-        ),
+        // headerRight: (
+        //   <Icon 
+        //     name="bookmark-border"
+        //     size={30}
+        //     onPress={() => null }
+        //     iconStyle={{paddingRight: 10, color:'#999'}}
+        //   />
+        // ),
         headerLeft: null
       };
     }
