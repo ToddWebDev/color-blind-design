@@ -27,12 +27,7 @@ class ColorMatch extends Component {
       return (
         <View style={{ flex: 1 }}>
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                flexDirection: 'row',
-              }}>
+            <View style={styles.container}>
               <TouchableOpacity
                 style={styles.flipBtn}
                 onPress={() => {
@@ -103,8 +98,9 @@ export default Tabs;
 const styles = {
   container: {
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
 
   text: {
@@ -116,14 +112,13 @@ const styles = {
   },
 
   shutterBtn: {
-    alignSelf: 'flex-end',
-    alignItems: 'center',
     backgroundColor: '#FA5F5F',
     borderWidth: 2,
     borderColor: 'white',
     borderRadius: 50,
-    height: 50,
-    width: 50,
+    height: 65,
+    width: 65,
+    marginBottom: 10
   },
 
   flipBtn: {
