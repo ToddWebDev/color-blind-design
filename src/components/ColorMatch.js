@@ -55,6 +55,7 @@ class ColorMatch extends Component {
        await this.camera.takePictureAsync().then(
         data => { 
           console.log(data);
+          this.setState({ color1: 'skyblue' });
         })
     }
   }
