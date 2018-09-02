@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
-import IconTitle from './components/IconTitle';
 import Home from './components/Home';
+import IconTitle from './components/IconTitle';
+import ColorTray from './components/ColorTray';
 import ColorMatch from './components/ColorMatch';
 import ColorMatchResults from './components/ColorMatchResults';
 import { Icon } from 'react-native-elements'
@@ -23,6 +24,7 @@ const AppStack = createStackNavigator({
     screen: ColorMatch,
     navigationOptions: ({navigation}) => {
       return {
+        headerTitle: <ColorTray />,
         headerStyle: {
           backgroundColor: '#fff',
           borderBottomWidth: 0
