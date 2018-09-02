@@ -32,15 +32,15 @@ const styles = StyleSheet.create({
   },
 
   textHeader: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 75,
-    marginBottom: 25
+    marginBottom: 50
   },
 
   text: {
-    fontSize: 14,
+    fontSize: 20,
     color: '#999',
     textAlign: 'center'
   },

@@ -4,11 +4,14 @@ import { createBottomTabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import { Permissions, Camera } from 'expo';
 import CameraRoll from '../components/CameraRoll';
+import ColorTray from '../components/ColorTray';
 
 class ColorMatch extends Component {
   state = {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
+    colorOne: null,
+    colorTwo: null
   };
 
   async componentWillMount() {
@@ -17,7 +20,7 @@ class ColorMatch extends Component {
   }
 
   render() {
-    const { hasCameraPermission } = this.state;
+    const { hasCameraPermission, colorOne, colorTwo } = this.state;
 
     if (hasCameraPermission === null) {
       return <View />;
@@ -28,6 +31,10 @@ class ColorMatch extends Component {
         <View style={{ flex: 1 }}>
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
             <View style={styles.container}>
+              <View style={styles.headerStyle}>
+                <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')}/>
+                <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
+              </View>
               <TouchableOpacity
                 style={styles.flipBtn}
                 onPress={() => {
@@ -55,7 +62,7 @@ class ColorMatch extends Component {
        await this.camera.takePictureAsync().then(
         data => { 
           console.log(data);
-          this.setState({ color1: 'skyblue' });
+          this.setState({ colorOne: 'skyblue' });
         })
     }
   }
@@ -101,7 +108,7 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
 
   text: {
@@ -124,7 +131,13 @@ const styles = {
 
   flipBtn: {
     position: 'absolute',
-    top: 10,
+    top: 100,
     right: 10
+  },
+
+  headerStyle: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    paddingTop: 45
   }
 };

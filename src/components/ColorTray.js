@@ -7,7 +7,7 @@ class ColorTray extends Component {
   render() {
     const {colorOne, colorTwo} = this.props;
     return (
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row', flexGrow: 1, justifyContent: 'center'}}>
         <Icon
           name="lens"
           size={40}
