@@ -19,6 +19,16 @@ class ColorMatch extends Component {
     this.setState({ hasCameraPermission: status === 'granted' });
   }
 
+  takePicture = async () => {
+    if (this.camera) {
+       await this.camera.takePictureAsync().then(
+        data => { 
+          console.log(data);
+          this.setState({ colorOne: 'skyblue' });
+        })
+    }
+  }
+
   render() {
     const { hasCameraPermission, colorOne, colorTwo } = this.state;
 
@@ -32,7 +42,7 @@ class ColorMatch extends Component {
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
             <View style={styles.container}>
               <View style={styles.headerStyle}>
-                <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')}/>
+                <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')} />
                 <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
               </View>
               <TouchableOpacity
@@ -56,21 +66,9 @@ class ColorMatch extends Component {
       );
     }
   }
-
-  takePicture = async () => {
-    if (this.camera) {
-       await this.camera.takePictureAsync().then(
-        data => { 
-          console.log(data);
-          this.setState({ colorOne: 'skyblue' });
-        })
-    }
-  }
 }
 
-const Options = () => <View>	
-  <Text style={styles.text}>Options</Text>	
-  </View>	
+const Options = () => <View></View>	
 
 const Tabs = createBottomTabNavigator(
   {
