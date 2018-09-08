@@ -39,11 +39,17 @@ class ColorMatch extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
+        {/* Move Camera into it's own Container */}
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
             <View style={styles.container}>
               <View style={styles.headerStyle}>
                 <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')} />
                 <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 1, padding: 25, backgroundColor:'rgba(188,178,178,0.4)'}}>
+                  <Text style={{color: 'white', fontSize: 22, textAlign: 'center'}}>Hold the target over what you want to wear.</Text>
+                </View>
               </View>
               <TouchableOpacity
                 style={styles.flipBtn}
@@ -54,12 +60,17 @@ class ColorMatch extends Component {
                       : Camera.Constants.Type.back,
                   });
                 }}>
-                <Text><Icon name={'switch-camera'} size={30} color={'rgba(255,255,255,0.6)'} /></Text>
+                <Icon name={'switch-camera'} size={30} color={'rgba(255,255,255,0.6)'} />
               </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.shutterBtn}
-                onPress={this.takePicture}>
-              </TouchableOpacity>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
+                <Icon name={'crop-free'} size={30} color={'rgba(255,255,255,0.6)'} />
+              </View>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
+                <TouchableOpacity
+                  style={styles.shutterBtn}
+                  onPress={this.takePicture}>
+                </TouchableOpacity>
+              </View>
             </View>
           </Camera>
         </View>
@@ -129,8 +140,8 @@ const styles = {
 
   flipBtn: {
     position: 'absolute',
-    top: 100,
-    right: 10
+    bottom: 25,
+    right: 15
   },
 
   headerStyle: {
