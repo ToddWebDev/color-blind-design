@@ -39,11 +39,10 @@ class ColorMatch extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-        {/* Move Camera into it's own Container */}
-        <View style={styles.headerStyle}>
-                <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')} />
-                <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
-              </View>
+          <View style={styles.headerStyle}>
+            <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')} />
+            <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
+          </View>
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
             <View style={styles.container}>
               <View style={{flexDirection: 'row'}}>
@@ -79,7 +78,7 @@ class ColorMatch extends Component {
   }
 }
 
-const Options = () => <View></View>	
+const Options = () => <View></View>
 
 const Tabs = createBottomTabNavigator(
   {
@@ -147,6 +146,5 @@ const styles = {
   headerStyle: {
     flexDirection: 'row',
     backgroundColor: '#fff',
-    paddingTop: 45
   }
 };

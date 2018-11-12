@@ -4,7 +4,6 @@ import Home from './components/Home';
 import IconTitle from './components/IconTitle';
 import ColorMatch from './components/ColorMatch';
 import ColorMatchResults from './components/ColorMatchResults';
-import { Icon } from 'react-native-elements'
 
 const AppStack = createStackNavigator({
   Home: {
