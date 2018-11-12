@@ -22,11 +22,7 @@ const AppStack = createStackNavigator({
     screen: ColorMatch,
     navigationOptions: ({navigation}) => {
       return {
-        header: null,
-        headerStyle: {
-          backgroundColor: '#fff',
-          borderBottomWidth: 0
-        }
+        header: null
       };
     }
   },
