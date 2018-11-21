@@ -39,8 +39,10 @@ class ColorMatch extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
+          <View style={{position: 'absolute', top: 0, left: 0, zIndex: 100}}>
+            <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')}/>
+          </View>
           <View style={styles.headerStyle}>
-            <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')} />
             <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
           </View>
           <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
