@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import Home from './components/Home';
 import IconTitle from './components/IconTitle';
@@ -8,52 +8,52 @@ import ColorMatchResults from './components/ColorMatchResults';
 const AppStack = createStackNavigator({
   Home: {
     screen: Home,
-    navigationOptions: ({navigation}) => {
+    navigationOptions: ({ navigation }) => {
       return {
         headerTitle: <IconTitle />,
         headerStyle: {
           backgroundColor: '#fff',
-          borderBottomWidth: 0
-        }
+          borderBottomWidth: 0,
+        },
       };
-    }
+    },
   },
-  ColorMatch: { 
+  ColorMatch: {
     screen: ColorMatch,
-    navigationOptions: ({navigation}) => {
+    navigationOptions: ({ navigation }) => {
       return {
-        header: null
+        header: null,
       };
-    }
+    },
   },
-  ColorMatchResults: { 
+  ColorMatchResults: {
     screen: ColorMatchResults,
-    navigationOptions: ({navigation}) => {
+    navigationOptions: ({ navigation }) => {
       return {
         headerTitle: <IconTitle />,
         headerStyle: {
           backgroundColor: '#fff',
-          borderBottomWidth: 0
+          borderBottomWidth: 0,
         },
         // headerRight: (
-        //   <Icon 
+        //   <Icon
         //     name="bookmark-border"
         //     size={30}
         //     onPress={() => null }
         //     iconStyle={{paddingRight: 10, color:'#999'}}
         //   />
         // ),
-        headerLeft: null
+        headerLeft: null,
       };
-    }
+    },
   },
 });
 
 export default createSwitchNavigator(
   {
-    App: AppStack
+    App: AppStack,
   },
   {
-    initialRouteName: 'App'
+    initialRouteName: 'App',
   }
 );

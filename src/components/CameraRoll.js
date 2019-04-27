@@ -12,12 +12,8 @@ export default class CameraRoll extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Open Photos"
-          onPress={this.pickFromGallery}
-        />
-        {image &&
-          <Image source={{ uri: image }} style={{ width: 300, height: 300 }} />}
+        <Button title='Open Photos' onPress={this.pickFromGallery} />
+        {image && <Image source={{ uri: image }} style={{ width: 300, height: 300 }} />}
       </View>
     );
   }
@@ -26,12 +22,12 @@ export default class CameraRoll extends React.Component {
     const permissions = Permissions.CAMERA_ROLL;
     const { status } = await Permissions.askAsync(permissions);
 
-    if(status === 'granted') {
+    if (status === 'granted') {
       this.pickImage();
     }
 
     console.log(permissions, status);
-  }
+  };
 
   pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({

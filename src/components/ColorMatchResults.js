@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableHighlight } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, TouchableHighlight } from 'react-native';
 import Results from './Results';
 import InnerSection from './InnerSection';
 
@@ -19,15 +19,18 @@ export default class ColorMatchResults extends Component {
           <Text style={styles.text}>Add a neutral color to your wardrobe to really make these colors pop.</Text>
         </InnerSection>
         <InnerSection>
-          <TouchableHighlight style={styles.button} onPress={
-            () => this.props.navigation.navigate('ColorMatch')
-          } underlayColor={'#FF5858'}
+          <TouchableHighlight
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate('ColorMatch')}
+            underlayColor={'#FF5858'}
           >
-            <View><Text style={styles.buttonText}>New Match</Text></View>
+            <View>
+              <Text style={styles.buttonText}>New Match</Text>
+            </View>
           </TouchableHighlight>
         </InnerSection>
       </View>
-    )
+    );
   }
 }
 
@@ -36,14 +39,14 @@ const styles = {
     flex: 1,
     paddingTop: 14,
     alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
 
   textHeader: {
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
-    margin: 20
+    margin: 20,
   },
 
   textSubHeader: {
@@ -51,7 +54,7 @@ const styles = {
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20,
   },
 
   text: {
@@ -61,7 +64,7 @@ const styles = {
     marginLeft: 50,
     marginRight: 50,
     marginBottom: 25,
-    lineHeight: 30
+    lineHeight: 30,
   },
 
   button: {
@@ -70,13 +73,13 @@ const styles = {
     borderColor: '#FF5858',
     borderWidth: 3,
     padding: 15,
-    width: 300
+    width: 300,
   },
 
   buttonText: {
     color: '#FF5858',
     fontWeight: 'bold',
     fontSize: 18,
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 };

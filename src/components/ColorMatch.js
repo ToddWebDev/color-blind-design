@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, TouchableHighlight } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import { Permissions, Camera } from 'expo';
@@ -11,7 +11,7 @@ class ColorMatch extends Component {
     hasCameraPermission: null,
     type: Camera.Constants.Type.back,
     colorOne: null,
-    colorTwo: null
+    colorTwo: null,
   };
 
   async componentWillMount() {
@@ -21,13 +21,12 @@ class ColorMatch extends Component {
 
   takePicture = async () => {
     if (this.camera) {
-       await this.camera.takePictureAsync().then(
-        data => { 
-          console.log(data);
-          this.setState({ colorOne: 'skyblue' });
-        })
+      await this.camera.takePictureAsync().then(data => {
+        console.log(data);
+        this.setState({ colorOne: 'skyblue' });
+      });
     }
-  }
+  };
 
   render() {
     const { hasCameraPermission, colorOne, colorTwo } = this.state;
@@ -39,38 +38,50 @@ class ColorMatch extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-          <View style={{position: 'absolute', top: 0, left: 0, zIndex: 100}}>
-            <Icon name='keyboard-arrow-left' size={45} color={'#FA5F5F'} onPress={() => this.props.navigation.navigate('Home')}/>
+          <View style={{ position: 'absolute', top: 0, left: 0, zIndex: 100 }}>
+            <Icon
+              name='keyboard-arrow-left'
+              size={45}
+              color={'#FA5F5F'}
+              onPress={() => this.props.navigation.navigate('Home')}
+            />
           </View>
           <View style={styles.headerStyle}>
-            <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined}/>
+            <ColorTray colorOne={colorOne ? colorOne : undefined} colorTwo={colorTwo ? colorTwo : undefined} />
           </View>
-          <Camera style={{ flex: 1 }} type={this.state.type} ref={ref => { this.camera = ref; }}>
+          <Camera
+            style={{ flex: 1 }}
+            type={this.state.type}
+            ref={ref => {
+              this.camera = ref;
+            }}
+          >
             <View style={styles.container}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 1, padding: 25, backgroundColor:'rgba(188,178,178,0.4)'}}>
-                  <Text style={{color: 'white', fontSize: 22, textAlign: 'center'}}>Hold the target over what you want to wear.</Text>
+              <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 1, padding: 25, backgroundColor: 'rgba(188,178,178,0.4)' }}>
+                  <Text style={{ color: 'white', fontSize: 22, textAlign: 'center' }}>
+                    Hold the target over what you want to wear.
+                  </Text>
                 </View>
               </View>
               <TouchableOpacity
                 style={styles.flipBtn}
                 onPress={() => {
                   this.setState({
-                    type: this.state.type === Camera.Constants.Type.back
-                      ? Camera.Constants.Type.front
-                      : Camera.Constants.Type.back,
+                    type:
+                      this.state.type === Camera.Constants.Type.back
+                        ? Camera.Constants.Type.front
+                        : Camera.Constants.Type.back,
                   });
-                }}>
+                }}
+              >
                 <Icon name={'switch-camera'} size={30} color={'rgba(255,255,255,0.6)'} />
               </TouchableOpacity>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
+              <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
                 <Icon name={'crop-free'} size={30} color={'rgba(255,255,255,0.6)'} />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
-                <TouchableOpacity
-                  style={styles.shutterBtn}
-                  onPress={this.takePicture}>
-                </TouchableOpacity>
+              <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
+                <TouchableOpacity style={styles.shutterBtn} onPress={this.takePicture} />
               </View>
             </View>
           </Camera>
@@ -80,13 +91,13 @@ class ColorMatch extends Component {
   }
 }
 
-const Options = () => <View></View>
+const Options = () => <View />;
 
 const Tabs = createBottomTabNavigator(
   {
     Photos: { screen: CameraRoll },
     ColorMatch: { screen: ColorMatch },
-    Options: { screen: Options }
+    Options: { screen: Options },
   },
   {
     initialRouteName: 'ColorMatch',
@@ -101,8 +112,8 @@ const Tabs = createBottomTabNavigator(
         } else if (routeName === 'Options') {
           iconName = `more-horiz`;
         }
-        return <Icon name={iconName} size={25} color={tintColor}/>;
-      }
+        return <Icon name={iconName} size={25} color={tintColor} />;
+      },
     }),
     tabBarOptions: {
       activeTintColor: 'tomato',
@@ -126,7 +137,7 @@ const styles = {
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    margin: 13
+    margin: 13,
   },
 
   shutterBtn: {
@@ -136,17 +147,17 @@ const styles = {
     borderRadius: 50,
     height: 65,
     width: 65,
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   flipBtn: {
     position: 'absolute',
     bottom: 25,
-    right: 15
+    right: 15,
   },
 
   headerStyle: {
     flexDirection: 'row',
     backgroundColor: '#fff',
-  }
+  },
 };

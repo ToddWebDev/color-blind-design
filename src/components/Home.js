@@ -1,27 +1,31 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
 export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1.5}}>
-        <Text style={styles.textHeader}> Let's get started!</Text>
-        <Text style={styles.text}> Confidently match your clothes.</Text>
+        <View style={{ flex: 1.5 }}>
+          <Text style={styles.textHeader}> Let's get started!</Text>
+          <Text style={styles.text}> Confidently match your clothes.</Text>
         </View>
-        <View style={{flex: 2}}>
-        <TouchableHighlight style={styles.button} underlayColor={'#dd5252'} onPress={
-          () => this.props.navigation.navigate('ColorMatch')
-        }>
-          <View><Text style={styles.buttonText}>START</Text></View>
-        </TouchableHighlight>
+        <View style={{ flex: 2 }}>
+          <TouchableHighlight
+            style={styles.button}
+            underlayColor={'#dd5252'}
+            onPress={() => this.props.navigation.navigate('ColorMatch')}
+          >
+            <View>
+              <Text style={styles.buttonText}>START</Text>
+            </View>
+          </TouchableHighlight>
         </View>
       </View>
-    )
+    );
   }
 }
 
-//What is the difference between StyleSheet.create and styles? 
+//What is the difference between StyleSheet.create and styles?
 
 const styles = StyleSheet.create({
   container: {
@@ -36,13 +40,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 75,
-    marginBottom: 50
+    marginBottom: 50,
   },
 
   text: {
     fontSize: 20,
     color: '#999',
-    textAlign: 'center'
+    textAlign: 'center',
   },
 
   button: {
@@ -51,13 +55,13 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     paddingTop: 43,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   buttonText: {
     color: '#fff',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
 
 // const styles = {
